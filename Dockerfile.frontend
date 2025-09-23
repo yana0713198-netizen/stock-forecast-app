@@ -1,0 +1,16 @@
+# Node.js の最新版を使いたいなら "node:22-slim" に変更
+FROM node:22-slim  
+
+WORKDIR /app
+
+# npm ci のほうが再現性が高い
+COPY frontend/package*.json ./
+RUN npm install
+
+COPY frontend/ /app
+
+# react-scripts の OpenSSL 問題を回避
+ENV NODE_OPTIONS=--openssl-legacy-provider  
+
+# 開発サーバ起動
+CMD ["npm", "start"]

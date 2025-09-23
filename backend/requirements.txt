@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+yfinance
+requests
+python-dotenv
+prophet
+statsmodels
+transformers
+torch
+python-multipart
