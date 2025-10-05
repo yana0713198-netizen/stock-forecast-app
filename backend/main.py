@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, Form
-from fastapi.middleware.cors import CORSMiddleware  # ← 追加
+from fastapi.middleware.cors import CORSMiddleware  
 from pydantic import BaseModel
 from typing import List, Optional
 from utils.forecast import predict_stock
@@ -10,17 +10,17 @@ from io import StringIO
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # ← これを入れる
+load_dotenv()  
 print("DEBUG: NEWSAPI_KEY =", os.getenv("NEWSAPI_KEY"))
 
 
 
 app = FastAPI()
 
-# ✅ CORS設定追加
+# CORS設定追加
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Reactの開発サーバを許可
+    allow_origins=["http://localhost:3000"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
